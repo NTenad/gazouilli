@@ -1,4 +1,14 @@
+<ul class="large_list">
 <% @tweets.each do |tweet| %>
-    <strong>@<%= tweet.user.username %></strong> :
-    <%= tweet.text %>
+  <li>
+    <div class="row">
+      <div class="large-2 columns">
+        <strong>@<%= tweet.user.username %></strong>
+      </div>
+      <div class="large-10 columns">
+        <%= tweet.text %>
+      </div>
+    </div>
+  </li>
 <% end %>
+</ul>

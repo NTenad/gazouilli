@@ -1,0 +1,8 @@
+.large_list {
+  list-style: none;
+}
+.large_list li {
+  overflow:hidden;
+  border-bottom: 1px solid lightgray;
+  padding: 10px 0;
+}
