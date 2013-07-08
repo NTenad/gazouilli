@@ -1,3 +1,4 @@
+require 'active_record'
 require 'sinatra'
 require 'twitter'
 require 'pry'
@@ -9,13 +10,26 @@ Twitter.configure do |config|
   config.oauth_token_secret = "HSHzwNCMDXP192ZEqKpIXzrp9uuZQtaKRMMInsyWk"
 end
 
+ActiveRecord::Base.establish_connection(
+  adapter: 'sqlite3',
+  database:  'db/gazouilli.db'
+)
+
+class Tweet < ActiveRecord::Base
+end
+
 get '/' do
-  @tweets = Twitter.user_timeline('simplonco')
+  twitter_tweets = Twitter.user_timeline('simplonco')
+  local_tweets = Tweet.all
+
+  @tweets = twitter_tweets + local_tweets
 
   erb :tweets
 end
 
+# create tweet
 post '/tweets' do
-    binding.pry
-    redirect '/'
+  Tweet.create(text: params[:text])
+
+  redirect '/'
 end
