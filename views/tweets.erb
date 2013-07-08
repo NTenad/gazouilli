@@ -1,3 +1,4 @@
 <% @tweets.each do |tweet| %>
+    <strong>@<%= tweet.user.username %></strong> :
     <%= tweet.text %>
 <% end %>
