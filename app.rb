@@ -1,5 +1,6 @@
 require 'sinatra'
 require 'twitter'
+require 'pry'
 
 Twitter.configure do |config|
   config.consumer_key = "fowYkbskZpEwmLh0sbtF1w"
@@ -12,4 +13,9 @@ get '/' do
   @tweets = Twitter.user_timeline('simplonco')
 
   erb :tweets
+end
+
+post '/tweets' do
+    binding.pry
+    redirect '/'
 end
