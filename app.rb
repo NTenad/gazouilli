@@ -23,6 +23,7 @@ get '/' do
   local_tweets = Tweet.all
 
   @tweets = twitter_tweets + local_tweets
+  @tweets.sort_by! { |tweet| tweet.created_at }.reverse!
 
   erb :tweets
 end
