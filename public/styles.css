@@ -6,3 +6,22 @@
   border-bottom: 1px solid lightgray;
   padding: 10px 0;
 }
+
+body {
+  background:hsl(0,0%,90%);
+}
+
+#content {
+  padding:30px;
+  background:white;
+}
+
+.large_list li h2 {
+  float:left;
+}
+.large_list form {
+  float:right;
+  margin:0;
+}
+
+
